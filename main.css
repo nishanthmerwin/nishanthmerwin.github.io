@@ -1,5 +1,4 @@
 
-
 body {
   background-color: white;
   font-family: 'Gudea', sans-serif;
@@ -126,10 +125,10 @@ ul li:before {
   color: #808284;
   font-size: .9em;
   line-height: 1.4em;
-  margin-bottom: 1%;
+  margin-bottom: 1.75%;
   margin-left: 2%;
   margin-right: 7%;
-  margin-top: .01em;
+  margin-top: 0.1em;
 }
 
 hr {
