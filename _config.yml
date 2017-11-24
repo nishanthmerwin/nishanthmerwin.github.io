@@ -12,9 +12,9 @@ picture: assets/images/profile.png
 
 # If you want to include your resume, set to true
 # and specify source (external or local).
-resume: false
-resume-external: true
-resume-url: https://google.com/?q=my+resume
+resume: true
+resume-external: false
+resume-url: assets/resume.pdf
 
 url: http://merwin.ca
 # your url: http://USERNAME.github.io
@@ -63,7 +63,7 @@ authors:
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
 # normal = 560px / large = 810px
-width: large
+width: normal
 
 # if you don't need pagination, comment the *paginate* configs below
 # paginate: 5
