@@ -31,14 +31,14 @@ A lot of this app was made possible through the work done by Google's research t
 
 To use this model, we built a simple webserver using [Flask](http://flask.pocoo.org/) to expose a single endpoint. This endpoint, when deployed receives images base64 encoded and embedded within a JSON object. At this point, the image is decoded in the backend and sent through the network for classification, and bounding box prediction. Using PIL, the bounding boxes of each prediction are drawn on the image before sending it back to the user, along with prediction data. To deploy this application, we used [Heroku](https://www.heroku.com/). Although I had never used it before, it's surprisingly simple to expose a Flask application through there.
 
-The front end of this application was built using [Android Studio](https://developer.android.com/studio/index.html). This was entirely built by Sujan, and he did an amazing job. This app currently allows users to take pictures, send it to the webserver for prediction, and then display the results.
+The front end of this application was built using [Android Studio](https://developer.android.com/studio/index.html). This was entirely built by Sujan, and he did an amazing job. This app currently allows users to take pictures, send it to the webserver for prediction, and then display the results. The metadata for each of these predictions is stored on MongoDB. Ryan set this up, and once again, was surprisingly easy to use. I would definitely use MongoDB in the future for these sorts of setups.
 
 Feel free to poke around or fork our [git repo](https://github.com/nishanthmerwin/deltahacks4_arsafety). Happy hacking! 
 
 
 ## Acknowledgements
 
-A big thanks to DeltaHacks IV organizing committee, your hard work made all of this possible. Another thank you to AccelorMital Dofasco for awarding us with the Workplace Safety prize. 
+A big thanks to DeltaHacks IV organizing committee, your hard work made all of this possible. Another thank you to AccelorMital Dofasco for awarding us with the Workplace Safety prize. And finally a thanks to all the judges that deemed us worth as one of the top six finalists.  
 
 
 
