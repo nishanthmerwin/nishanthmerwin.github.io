@@ -9,7 +9,7 @@ layout: page
 under Dr. Nathan Magarvey in the Institute for Infectious Disease Research.
 Currently, my research aims to accelerate the discovery and characterization
 of natural products (chemicals produced by living organisms). Through developing
-new genome analytical toolkits (such as <a href="https://magarveylab.ca/prism/">PRISM</a>), 
+new genome analytical toolkits (such as <a href="https://magarveylab.ca/prism/" target="_blank">PRISM</a>), 
 and metabolomic analysis pipelines,
 we're now able to identify and isolate novel small molecules at an
 unprecendented rate.</p>
