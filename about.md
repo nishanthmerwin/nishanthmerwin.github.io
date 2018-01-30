@@ -33,6 +33,7 @@ these discoveries into the clinic for therapeutic use.</p>
 
 <h2>Publications</h2>
 <ul class="skill-list">
+	<li> Skinnider MA, Johnston CW, <strong><u>Merwin NJ</u></strong>, Dejong CA, Magarvey NA. Global analysis of prokaryotic tRNA-derived cyclodipeptide biosynthesis. BMC Bioinformatics 2018; <a href="https://doi.org/10.1186/s12864-018-4435-1">doi:10.1186/s12864-018-4435-1</a></li>
 
 	<li> Mousa WK, Athar B, <strong><u>Merwin NJ</u></strong>, Magarvey NA. Antibiotics and specialized metabolites from the human microbiota. Natural Product Reports 2017; <a href="https://doi.org/10.1039/c7np00021a">doi:10.1039/c7np00021a</a></li>
 
