@@ -25,7 +25,7 @@ Together with [Ryan](https://github.com/RyanNourbaran) and [Sujan](https://githu
 <iframe src='https://gfycat.com/ifr/ThinFastDanishswedishfarmdog' frameborder='0' scrolling='no' width='720' height='400' allowfullscreen></iframe>
 
 
-# The technology
+## The technology
 
 A lot of this app was made possible through the work done by Google's research team. In 2017, their team released several [object recognition models](https://github.com/tensorflow/models/tree/master/research/object_detection) trained on the [COCO](http://cocodataset.org) dataset. While they all work well, we chose to use the "Single Shot Multibox Detector (SSD) with MobileNet" due to its rapid prediction time. After trying a few others, we found that this model could provide reliable results in seconds running on just a CPU.
 
@@ -36,7 +36,7 @@ The front end of this application was built using [Android Studio](https://devel
 Feel free to poke around or fork our [git repo](https://github.com/nishanthmerwin/deltahacks4_arsafety). Happy hacking! 
 
 
-# Acknowledgements
+## Acknowledgements
 
 A big thanks to DeltaHacks IV organizing committee, your hard work made all of this possible. Another thank you to AccelorMital Dofasco for awarding us with the Workplace Safety prize. 
 
