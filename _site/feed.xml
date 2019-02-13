@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-05T21:50:33-04:00</updated><id>http://localhost:4000/</id><title type="html">Nishanth Merwin</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">#SWDChallenge Makeover</title><link href="http://localhost:4000/swd/" rel="alternate" type="text/html" title="#SWDChallenge Makeover" /><published>2018-09-05T11:42:00-04:00</published><updated>2018-09-05T11:42:00-04:00</updated><id>http://localhost:4000/swd</id><content type="html" xml:base="http://localhost:4000/swd/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://merwin.ca/feed.xml" rel="self" type="application/atom+xml" /><link href="http://merwin.ca/" rel="alternate" type="text/html" /><updated>2019-02-12T20:42:42-05:00</updated><id>http://merwin.ca/</id><title type="html">Nishanth Merwin</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Making sense of XKCD</title><link href="http://merwin.ca/xkcd_writeup/" rel="alternate" type="text/html" title="Making sense of XKCD" /><published>2019-01-28T11:42:00-05:00</published><updated>2019-01-28T11:42:00-05:00</updated><id>http://merwin.ca/xkcd_writeup</id><content type="html" xml:base="http://merwin.ca/xkcd_writeup/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Who doesn’t love &lt;a href=&quot;https://xkcd.com/&quot;&gt;XKCD&lt;/a&gt;? A while back, around the start of my grad school, I came across a relevant machine learning comic from Randall (see below). Today, we’re going to throw some NLP and topic modeling into a pile and hope something fun comes out the other end.&lt;/p&gt;
+
+&lt;figure align=&quot;center&quot;&gt;
+  &lt;img src=&quot;https://imgs.xkcd.com/comics/machine_learning.png&quot; title=&quot;The pile gets soaked with data and starts to get mushy over time, so it's technically recurrent.&quot; /&gt;
+  &lt;figcaption&gt;Test caption.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;First things first, lets download some of these comics. Altogether, Randall Munroe (author of XKCD) has been extremely productive and has created over 2100 comics since the inception of XKCD on January 1st 2006! Looking at this, he is scarily consistent, averaging about 13 comics a month. The first month is an outlier, I imagine he had a butt load of comics he had drawn and released them all onto the internet at once. But I truly admire his consistency!&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;/assets/images/xkcd/productivity.png&quot; title=&quot;My attempt at recreating some XKCD-esque charts&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Next, lets gather some more data. Thankfully, the folks at &lt;a href=&quot;https://www.explainxkcd.com/wiki/index.php/Main_Page&quot;&gt;Explained XKCD&lt;/a&gt; have annotated each of these comics with a transcript as well as their own explanations for each. This, along with the actual images, meant I had a rich dataset to work with of roughly unstructured text and their corresponding comics.&lt;/p&gt;
+
+&lt;h3 id=&quot;we-have-data-now-what&quot;&gt;We have data, now what?&lt;/h3&gt;
+
+&lt;p&gt;The title of this section accurately describes how I felt at this stage in the project. With work, I usually have a goal or end project, but I wanted to use this dataset to learn some new skills. So, I thought to try a bit of topic modelling. I really like this technique because it essentially allows the data to “self-organize”! Basically, based on the co-occurance of specific words, we can identify several topics that are commonly used in XKCD comics. After surprisingly little actual coding, I was able to build a Latent Ditrecht Allocation (LDA) model that identified 10 topics of interest.&lt;/p&gt;
+
+&lt;p&gt;Creating the model itself was pretty simple:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Lemmatizing all words identified in both transcript and explanations of the comic. Gensim / NLTK libraries helped out a lot here!&lt;/li&gt;
+  &lt;li&gt;Create a dictionary, and remove all words that appear relatively infrequently.&lt;/li&gt;
+  &lt;li&gt;Use gensim to build an LDA model across 10 topics, passing over the data 20 times.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;And with that, we get the following topics revealed.&lt;/p&gt;
+
+&lt;table class=&quot;mbtablestyle&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Topic Number&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Words&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;What I think it means?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;megan, black, ponytail, friend, game, panel, year, beret, number, phone&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;People and timelines&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;stapl, momentum, len, megan, cat, repair, beret, ponytail, pointer, black&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;??&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;cabl, jack, geek, ingredi, pump, verb, guest, sister, factori, weekend&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Cables?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;barrel, bowl, polar, weekend, screenshot,   float, dozen, flowchart, flash, sleep&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Barrels&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;gold, megan, michael, pool, sheet, love, backpack, feynman, peni, bird&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Gold?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;band, fluid, song, wikipedia, megan, bush, word, game, monster, music&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;??&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;elev, twitter, megan, reddit, cabl, friend, kernel, river, user, lake&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;??&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;skateboard, senat, steve, firefli, escal, summer, paul, democrat, republican, adam&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Politics&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;chess, pokemon, knight, hors, basketbal, sister, player, captur, piec, board&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Chess and pokemon&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;virus, backup, keyboard, chip, belt, dougla, drone, black, beret, ghost&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;??&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Looking through some of these, there were some that were surprisingly accurate. For example, barrels is a recurring theme in his works, and was deserving of a whole topic on its own. Other topics such as 2, 5, 6 and 9 were very rarely observed.&lt;/p&gt;
+
+&lt;h3 id=&quot;lets-search-by-topic&quot;&gt;Lets search by topic!&lt;/h3&gt;
+
+&lt;p&gt;From here, I started playing around to see how we could sort and search for these topics among all of these comics. In particular, I wanted to share this with all of you.
+So, using the LDA model for each of these topics, I wanted to create a web app with SLIDERS! Realistically, you can use the sliders to identify
+the mix of these topics you want, and with my website, I’ll identify the top five comics that match your search. Kinda like the DJ booth of XKCD comics!&lt;/p&gt;
+
+&lt;p&gt;I built this pretty rapidly using Flask to act as the backend + server side rendering engine. Heroku allows you to deploy flask applications with ease, and for free so you can find it all on there.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://protected-mesa-78784.herokuapp.com/&quot;&gt;WebApp&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nishanthmerwin/xkcd_lda_flaskapp&quot;&gt;WebApp Source code&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nishanthmerwin/xkcd_lda&quot;&gt;GitHub code for this analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Overall, I was pretty impressed with this dataset. In the end, I wanted to put something out before diving too much into the data science-y aspects of it, as I could have diven much deeper! For anyone curious, here are a few more ideas I had / might pursure with this dataset:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sentiment analysis (How positive / negative / angry do each of the comics read?)&lt;/li&gt;
+  &lt;li&gt;Image analysis using deep learning
+    &lt;ul&gt;
+      &lt;li&gt;Can we cluster according to these topics that we identified?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;How many topics is ideal? What words are most common?&lt;/li&gt;
+  &lt;li&gt;With StyleGAN out there now, can we generate some of these drawings of Megan / beret man?&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>nishanth</name></author><category term="blog" /><category term="visualization" /><category term="data science" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://merwin.ca/assets/images/markdown.jpg" /></entry><entry><title type="html">#SWDChallenge Makeover</title><link href="http://merwin.ca/swd/" rel="alternate" type="text/html" title="#SWDChallenge Makeover" /><published>2018-09-05T11:42:00-04:00</published><updated>2018-09-05T11:42:00-04:00</updated><id>http://merwin.ca/swd</id><content type="html" xml:base="http://merwin.ca/swd/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;I recently came across &lt;a href=&quot;http://www.storytellingwithdata.com/&quot;&gt;Storytelling With Data&lt;/a&gt;, and their #SWDChallenge. Sad that I missed their last round, I was quick to jump on this month’s &lt;a href=&quot;http://www.storytellingwithdata.com/blog/2018/8/24/swdchallenge-how-would-you-makeover-this-graph&quot;&gt;challenge&lt;/a&gt;. The challenge this month was to revamp this figure depicting the change in global travel markets from 2000 to 2016.&lt;/p&gt;
 
@@ -17,7 +137,7 @@
 
 &lt;p&gt;This plot was created with matplotlib, with slight modifications using inkscape (mainly for the legend). One aspect I wanted to highlight in this graph is the difference between 2000 and 2016, which is why I chose to emphasize this with arrows, coloured according to the direction. Only after I plotted this data, I could appreciate that Asia Pacific is not only the largest travel market, but also that all other regions have lost lots of this market share.&lt;/p&gt;
 
-&lt;p&gt;All of the code needed to plot this is hosted on my &lt;a href=&quot;https://github.com/nishanthmerwin/swd_challenge/blob/master/src/plot_data.ipynb&quot;&gt;GitHub&lt;/a&gt;. Feel free to peruse and suggest any improvements!&lt;/p&gt;</content><author><name>nishanth</name></author><category term="blog" /><category term="visualization" /><category term="data science" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/markdown.jpg" /></entry><entry><title type="html">Building an object recognition mobile app</title><link href="http://localhost:4000/deltahacks/" rel="alternate" type="text/html" title="Building an object recognition mobile app" /><published>2018-01-29T11:42:00-05:00</published><updated>2018-01-29T11:42:00-05:00</updated><id>http://localhost:4000/deltahacks</id><content type="html" xml:base="http://localhost:4000/deltahacks/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;All of the code needed to plot this is hosted on my &lt;a href=&quot;https://github.com/nishanthmerwin/swd_challenge/blob/master/src/plot_data.ipynb&quot;&gt;GitHub&lt;/a&gt;. Feel free to peruse and suggest any improvements!&lt;/p&gt;</content><author><name>nishanth</name></author><category term="blog" /><category term="visualization" /><category term="data science" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://merwin.ca/assets/images/markdown.jpg" /></entry><entry><title type="html">Building an object recognition mobile app</title><link href="http://merwin.ca/deltahacks/" rel="alternate" type="text/html" title="Building an object recognition mobile app" /><published>2018-01-29T11:42:00-05:00</published><updated>2018-01-29T11:42:00-05:00</updated><id>http://merwin.ca/deltahacks</id><content type="html" xml:base="http://merwin.ca/deltahacks/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;This past weekend, I participated in &lt;a href=&quot;http://deltahacks.com/&quot;&gt;DeltaHacks IV&lt;/a&gt; at McMaster, and got a chance to meet, learn and collaborate with a lot of awesome people. Our team decided to tackle one of the challenges posted, to improve workplace safety. Our idea was to create an object recognition mobile application that employees could use to easily identify the dangers and safety protocols required to operate the equipment around them.&lt;/p&gt;
 
@@ -37,7 +157,7 @@
 
 &lt;h2 id=&quot;acknowledgements&quot;&gt;Acknowledgements&lt;/h2&gt;
 
-&lt;p&gt;A big thanks to DeltaHacks IV organizing committee, your hard work made all of this possible. Another thank you to AccelorMital Dofasco for awarding us with the Workplace Safety prize. And finally a thanks to all the judges that deemed us worthy as one of the top six finalists.&lt;/p&gt;</content><author><name>nishanth</name></author><category term="blog" /><category term="machine learning" /><category term="python" /><category term="tensorflow" /><category term="Android Studio" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/markdown.jpg" /></entry><entry><title type="html">Hello and jless</title><link href="http://localhost:4000/first_post/" rel="alternate" type="text/html" title="Hello and jless" /><published>2017-11-24T11:42:00-05:00</published><updated>2017-11-24T11:42:00-05:00</updated><id>http://localhost:4000/first_post</id><content type="html" xml:base="http://localhost:4000/first_post/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;A big thanks to DeltaHacks IV organizing committee, your hard work made all of this possible. Another thank you to AccelorMital Dofasco for awarding us with the Workplace Safety prize. And finally a thanks to all the judges that deemed us worthy as one of the top six finalists.&lt;/p&gt;</content><author><name>nishanth</name></author><category term="blog" /><category term="machine learning" /><category term="python" /><category term="tensorflow" /><category term="Android Studio" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://merwin.ca/assets/images/markdown.jpg" /></entry><entry><title type="html">Hello and jless</title><link href="http://merwin.ca/first_post/" rel="alternate" type="text/html" title="Hello and jless" /><published>2017-11-24T11:42:00-05:00</published><updated>2017-11-24T11:42:00-05:00</updated><id>http://merwin.ca/first_post</id><content type="html" xml:base="http://merwin.ca/first_post/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Hi all! Welcome to my blog. As you might already know, 
 I’m currently heading towards the end of my graduate career and thought 
@@ -57,4 +177,4 @@ which makes this process much more unix-esque.&lt;/p&gt;
 &lt;p&gt;Insert this into your &lt;code class=&quot;highlighter-rouge&quot;&gt;.zshrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; and your good to go!&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jless() { jq . $1 -C | less -R; }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;iframe src=&quot;https://gfycat.com/ifr/ImpartialTemptingGreatdane&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;714&quot; height=&quot;400&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content><author><name>nishanth</name></author><category term="blog" /><category term="json" /><category term="CLI" /><category term="linux" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/markdown.jpg" /></entry></feed>
+&lt;iframe src=&quot;https://gfycat.com/ifr/ImpartialTemptingGreatdane&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;714&quot; height=&quot;400&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content><author><name>nishanth</name></author><category term="blog" /><category term="json" /><category term="CLI" /><category term="linux" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://merwin.ca/assets/images/markdown.jpg" /></entry></feed>
