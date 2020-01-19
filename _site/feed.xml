@@ -1,4 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://merwin.ca/feed.xml" rel="self" type="application/atom+xml" /><link href="http://merwin.ca/" rel="alternate" type="text/html" /><updated>2020-01-18T20:44:30-05:00</updated><id>http://merwin.ca/</id><title type="html">Nishanth Merwin</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Making sense of XKCD</title><link href="http://merwin.ca/xkcd_writeup/" rel="alternate" type="text/html" title="Making sense of XKCD" /><published>2019-01-28T11:42:00-05:00</published><updated>2019-01-28T11:42:00-05:00</updated><id>http://merwin.ca/xkcd_writeup</id><content type="html" xml:base="http://merwin.ca/xkcd_writeup/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://merwin.ca/feed.xml" rel="self" type="application/atom+xml" /><link href="http://merwin.ca/" rel="alternate" type="text/html" /><updated>2020-01-18T22:46:38-05:00</updated><id>http://merwin.ca/</id><title type="html">Nishanth Merwin</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Swinging with trigonometry</title><link href="http://merwin.ca/pendulum_game/" rel="alternate" type="text/html" title="Swinging with trigonometry" /><published>2020-01-18T11:42:00-05:00</published><updated>2020-01-18T11:42:00-05:00</updated><id>http://merwin.ca/pendulum_game</id><content type="html" xml:base="http://merwin.ca/pendulum_game/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;As a result of commuting, I’ve found myself back playing mobile phone and web games on the train.
+It’s a nice pass time, but I recently came around a game that although seems remarkably simple, it’s actually
+a ton of fun to play (plus it gets really challenging).
+&lt;a href=&quot;https://www.newgrounds.com/portal/view/724232&quot;&gt;Handulum +&lt;/a&gt; is a physics based game where you can
+“catch” a falling ball and swing it along a pendulum. I got decently far, but wanted to see what it 
+would take to actually recreate this sort of physics engine. I’m not really a game developer, but
+I’ve been really interested in developing more low level graphics for creative side projects and
+though this would be a good place to start. Check out Handulum + below though, its miles beyond
+anything I could create!&lt;/p&gt;
+
+&lt;figure align=&quot;center&quot;&gt;
+    &lt;video height=&quot;300&quot; width=&quot;500&quot; autoplay=&quot;&quot; loop=&quot;&quot;&gt;
+        &lt;source src=&quot;https://video.twimg.com/tweet_video/EOkWxJhWoAYWYPH.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+        &amp;lt;/source&amp;gt;
+    &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The first thing I did was choose my ecosystem. Since my day job mostly revolves around Python,
+I quickly found myself reading into &lt;a href=&quot;https://www.pygame.org/wiki/GettingStarted&quot;&gt; PyGame&lt;/a&gt;.
+The syntax was brief enough and it could draw circles and lines, which was more than enough on the graphics
+side for me. My main goal here was to recreate the physics involved, not spend too much time
+trying to make it pretty (although that might be a fun extension to this project). A few 
+&lt;a href=&quot;http://www.petercollingridge.co.uk/tutorials/pygame-physics-simulation/&quot;&gt;tutorials&lt;/a&gt;
+later, I now had a bouncing ball that somewhat emulated gravity.&lt;/p&gt;
+
+&lt;p&gt;But this game obviously required a bit more than bouncing. I needed to figure out how to
+get the ball to move in circle, and even more, observe some conservation of momentum
+as it attached and released from the pendulum. This was certainly more challenging
+than I had initially thought, and quickly found myself lost in Google searches and
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Pendulum_(mathematics)#Simple_gravity_pendulum&quot;&gt;endless equations&lt;/a&gt;
+describing motion in “simple” pendulums (not so simple for me!).&lt;/p&gt;
+
+&lt;p&gt;When I first started, I simply tried to do everything via code, but I quickly found the ball
+moving in all sorts of crazy ways, and not getting and progress.
+In the end, I found it best to just draw it out, and pull out some handy-dandy trigonometry.
+What’s not shown below are the 10+ other pages of scribbles that I threw away along the process.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;/assets/images/pendulum/trig.jpg&quot; title=&quot;Does this resemble trigonomotry?&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;I realized  were two key aspects that I had to consider:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Converting forces in x and y directions to an angular direction via trigonometry (thanks
+  to SOH-CAH-TOA).&lt;/li&gt;
+  &lt;li&gt;Understanding that angular velocity can be represented as linear velocity (in x and y
+  direction) via the angle of the tangent, which luckily enough is also calculable
+  via trigonometric equations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Overall, this took me quite a bit longer than I expected, but I did end up learning a lot
+and brushing up on some mathematics that I had long forgotten. Doing this in Python made
+this project a lot easier as I was very comfortable code organization and structuring
+everything in an object oriented manner. Take a look at the prototype below:&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(78.50% + 44px)&quot;&gt;&lt;iframe src=&quot;https://gfycat.com/ifr/FlamboyantColossalIndianglassfish&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;If you’re even more curious, feel free to fork the repo and try running it yourself.
+Let me know what you think.&lt;/p&gt;
+
+&lt;p&gt;Repo: &lt;a href=&quot;https://github.com/nishanthmerwin/handball&quot;&gt;HandBall&lt;/a&gt;&lt;/p&gt;</content><author><name>nishanth</name></author><category term="blog" /><category term="game development" /><category term="math" /><category term="pygame" /><summary type="html">Introduction</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://merwin.ca/assets/images/markdown.jpg" /></entry><entry><title type="html">Making sense of XKCD</title><link href="http://merwin.ca/xkcd_writeup/" rel="alternate" type="text/html" title="Making sense of XKCD" /><published>2019-01-28T11:42:00-05:00</published><updated>2019-01-28T11:42:00-05:00</updated><id>http://merwin.ca/xkcd_writeup</id><content type="html" xml:base="http://merwin.ca/xkcd_writeup/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Who doesn’t love &lt;a href=&quot;https://xkcd.com/&quot;&gt;XKCD&lt;/a&gt;? A while back, around the start of my grad school, I came across a relevant machine learning comic from Randall (see below). Today, we’re going to throw some NLP and topic modeling into a pile and hope something fun comes out the other end.&lt;/p&gt;
 
