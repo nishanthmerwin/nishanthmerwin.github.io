@@ -16,7 +16,7 @@ resume: true
 resume-external: false
 resume-url: assets/resume.pdf
 
-url: http://www.merwin.ca
+url: https://www.merwin.ca
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
