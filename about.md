@@ -2,33 +2,33 @@
 title: About
 layout: page
 ---
+
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 
-<p> Hi, welcome to my page. My name is Nishanth Merwin and I'm
-currently a data scientist at <a href="https://www.biosymetrics.com/">BioSymetrics Inc.</a>,
-based out of Toronto. I specialize in machine learning for chemical and bioactivity data sets.
-Previously, I completed graduate research under <a href="https://chemistry.mcmaster.ca/component/comprofiler/userprofile/magarv.html">Nathan Magarvey</a> where I built AI/ML strategies for integrating
+<p> Hi, welcome to my page. My name is Nishanth Merwin and I'm currently at <a href="https://quartz.bio"> QuartzBio</a>  solving problems around clinical trial data operations. In my day-to-day, I wear a lot of hats ranging from software engineering, product management and data science. Previously, I worked at early stage drug discovery comanies (like <a href="https://adapsyn.com">Adapsyn</a> and <a href="https://www.biosymetrics.com">BioSymetrics</a>) where I applied machine learning to uncover new therapeutics. I completed graduate research under <a href="https://chemistry.mcmaster.ca/component/comprofiler/userprofile/magarv.html">Nathan Magarvey</a> where I built AI/ML strategies for integrating
 multiomic data towards the goal of accelerating drug discovery (e.g. <a href="http://deepripp.magarveylab.ca/">DeepRiPP</a>).
-Many of the technologies I developed here were applied towards industrial drug discovery through
-my work with <a href="https://adapsyn.com/">Adapsyn Bioscience</a>.</p>
 
-<p>I'm always happy to chat about the intersection of AI and biochemistry.</p>
+
+<p>I'm always happy to chat about the intersection of software engineering, machine learning and drug discovery.</p>
 
 <h2>Skills</h2>
 
 <ul class="skill-list">
-	<li> Python 3 </li>
+	<li> Python</li>
     <li> Chemoinformatics (RDKit, CDK) </li>
 	<li> Machine learning (Clustering, classification, etc.) </li>
 	<li> Data visualization (ggplot2, D3.js, matplotlib) </li>
-	<li> Full stack web development (Flask, Vue) </li>
+	<li> Full stack web development (Django, Flask, Vue, React) </li>
 	<li> Git version control </li>
 	<li> NGS Data management and analysis (PacBio, Illumina) </li>
 	<li> Wrangling around with software until I find a solution </li>
+	<li> Software architecture </li>
 </ul>
 
 <h2>Publications</h2>
+	
+	<p> For the most recent set of publications, visit my <a href="https://scholar.google.com/citations?user=0WMHH9sAAAAJ&hl=en">Google Scholar page</a>.
 <ul class="skill-list">
     
     <li> <strong><u>Merwin NJ</u></strong>, Mousa WK, Dejong CA, Skinnider MA, Cannon MJ, Li H, Dial K, Gunabalasingam M, Johnston CW, Magarvey NA. Proceedings of the National Academy of Sciences 2020; <a href="https://doi.org/10.1073/pnas.1901493116">doi:10.1073/pnas.1901493116</a></li>
