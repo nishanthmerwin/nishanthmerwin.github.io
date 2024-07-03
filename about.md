@@ -6,7 +6,7 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 
-<p> Hi, welcome to my page. My name is Nishanth Merwin and I'm currently at <a href="https://quartz.bio"> QuartzBio</a>  solving problems around clinical trial data operations. In my day-to-day, I wear a lot of hats ranging from software engineering, product management and data science. Previously, I worked at early stage drug discovery comanies (like <a href="https://adapsyn.com">Adapsyn</a> and <a href="https://www.biosymetrics.com">BioSymetrics</a>) where I applied machine learning to uncover new therapeutics. I completed graduate research under <a href="https://chemistry.mcmaster.ca/component/comprofiler/userprofile/magarv.html">Nathan Magarvey</a> where I built AI/ML strategies for integrating
+<p> Hi, welcome to my page. My name is Nishanth Merwin and I'm currently at <a href="https://quartz.bio"> QuartzBio</a>  solving problems around clinical trial data operations. In my day-to-day, I wear a lot of hats ranging from software engineering, product management and data science. Previously, I worked at early stage drug discovery companies (like <a href="https://adapsyn.com">Adapsyn</a> and <a href="https://www.biosymetrics.com">BioSymetrics</a>) where I applied machine learning to uncover new therapeutics. I completed graduate research under <a href="https://chemistry.mcmaster.ca/component/comprofiler/userprofile/magarv.html">Nathan Magarvey</a> where I built AI/ML strategies for integrating
 multiomic data towards the goal of accelerating drug discovery (e.g. <a href="http://deepripp.magarveylab.ca/">DeepRiPP</a>).
 
 

@@ -45,7 +45,7 @@ At a high level, there are several thematic similarities between the two workflo
 to ingest a complex input and translate it into a simplified representation that can then be indexed. Second, a similarity search
 is conducted using a relatively simple distance measure. These distance measures can be performed using highly optimized vector databases.
 
-In both workflows, and indexing and querying workflow is required to ingest and index data into a database prior to individual user
+In both workflows, an indexing and querying pipeline is required to ingest and index data into a database prior to individual user
 queries.  
 
 
