@@ -22,7 +22,8 @@ url: https://www.merwin.ca
 permalink: /:title/
 
 # To enable google analytics, supply your token below
-google_analytics: 'G-ZY65GZZY51'
+# Using umami tracking instead
+# google_analytics: 'G-ZY65GZZY51'
 
 
 
